@@ -1,0 +1,40 @@
+// colors
+$mainColor: #7F0046;
+$secondaryColor: #CD1679;
+$white: #ffffff;
+$grey: #818E9C;
+$detailsBorder: #D8E1EA;
+$resetBgColor: #D8E1EA;
+$kendoGridHeaderBgColor: #e0e0e0;
+$kendoGridFilterBgColor: #f1f1f1;
+$navBgColor: #fafafa;
+$sidebarScrollColor: #a9a9a9;
+$tableBorderColor: rgba(216, 225, 234, 1);
+$dropdownHoverBorderColor: rgb(180, 186, 194);
+$tableSourceColor: #fafafa;
+
+// login
+$loginBgImage: url("login-background.png");
+$loginSideBgColor: rgba(0,0,0,0.4);
+
+// not found
+$notFoundBgImage: url("/assets/img/not-found.png");
+
+// severity grid colors
+$criticalBgColor: #EDECEC;
+$highBgColor: #F3E6ED;
+$mediumBgColor: #F9F6E6;
+$lowBgColor: #E6EDFA;
+$infoBgColor: #DEDEDE;
+
+$criticalTextColor: #FF0000;
+$highTextColor: #7F0046;
+$mediumTextColor: #895F11;
+$lowTextColor: #0048CC;
+$infoTextColor: #161616;
+
+// scorecard grid colors
+$good: rgba(78, 226, 101, 0.5);
+$medium: rgba(252, 180, 10, 0.5);
+$critical: rgba(236, 58, 66, 0.5);
+$unknown: rgba(236, 240, 245, 1);
