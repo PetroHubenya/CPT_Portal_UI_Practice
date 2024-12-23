@@ -7,4 +7,38 @@
     background-size: cover;
     background-position: center;
 }
-  
+
+.sidebar {
+  min-width: 200px;
+  width: 25%;
+  height: 100%;
+  background-color: $loginSideBgColor;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar__content {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.sidebar__logo, .sidebar__interaction {
+  width: 100%;
+}
+
+.sidebar__interaction {
+  font-size: 20px;
+  padding: 25px;
+  border-radius: 4px;
+  border: 0;
+  outline: 0;
+  color: $white;
+  cursor: pointer;
+  font-weight: bold;
+}
