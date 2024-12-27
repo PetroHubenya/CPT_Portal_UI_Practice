@@ -1,39 +1,40 @@
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { MSAL_GUARD_CONFIG, MsalGuard, MsalInterceptor, MsalModule, MsalService } from '@azure/msal-angular';
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
-import { Observable } from 'rxjs';
+import { provideAppInitializer } from '@angular/core';
 import { msalConfig, protectedResources } from '../../../configs/auth-config';
-// import { TokenInterceptor } from '../../../token-interceptor/token-interceptor.service';
+import { TokenInterceptor } from '../../token-interceptor/token-interceptor.service';
+import { Observable } from 'rxjs';
 
-// MSAL Initialization
-export function initializeMsal(msalService: MsalService): () => Observable<void> {
-  return () => msalService.initialize();
+// MSAL Initialization Function
+export function initializeMsal(): Observable<void> {
+  const msalService = inject(MsalService);
+  return msalService.initialize();
 }
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    // MSAL Module Configuration.
+    // MSAL Module Configuration
     MsalModule.forRoot(
       new PublicClientApplication(msalConfig),
       {
         interactionType: InteractionType.Redirect,
         authRequest: {
-          scopes: protectedResources.scopes
-        }
+          scopes: protectedResources.scopes,
+        },
       },
       {
         interactionType: InteractionType.Redirect,
         protectedResourceMap: new Map([
-          [protectedResources.endpoint, protectedResources.scopes]
-        ])
+          [protectedResources.endpoint, protectedResources.scopes],
+        ]),
       }
     ),
   ],
-  // Providers for Authentication.
   providers: [
     MsalService,
     {
@@ -41,27 +42,23 @@ export function initializeMsal(msalService: MsalService): () => Observable<void>
       useValue: {
         interactionType: InteractionType.Redirect,
         authRequest: {
-          scopes: protectedResources.scopes
-        }
-      }
+          scopes: protectedResources.scopes,
+        },
+      },
     },
+    provideAppInitializer(() => initializeMsal()),
     {
-      provide: APP_INITIALIZER,
-      useFactory: initializeMsal,
-      deps: [MsalService],
-      multi: true
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
     },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true,
-    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: MsalInterceptor,
-      multi: true
+      multi: true,
     },
-    MsalGuard
-  ]
+    MsalGuard,
+  ],
 })
-export class AuthModule { }
+
+export class AuthModule {}
