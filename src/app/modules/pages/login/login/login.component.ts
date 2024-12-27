@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  // Call authentication service to initiate login process using MSAL (Microsoft Authentication Library)
+  login() {
+  throw new Error('Method not implemented.');
+  }
 }
