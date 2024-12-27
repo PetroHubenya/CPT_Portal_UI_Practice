@@ -14,7 +14,7 @@ export class ConfigService {
   constructor() { }
 
   async loadConfig() {
-    const response = await fetch('/assets/environments/environment.dev.json');
+    const response = await fetch('/environments/environment.dev.json');
     this.config = await response.json();
   }
 
