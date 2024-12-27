@@ -7,12 +7,12 @@ export const routes: Routes = [
     // Redirect to security dashboard by default
     { 
         path: '', 
-        redirectTo: ROUTES.SECUTITY_DASHBOARD, 
+        redirectTo: ROUTES.SECURITY_DASHBOARD, 
         pathMatch: 'full'
     },
     // Handle invalid routes
     {
         path: '**', 
-        redirectTo: ROUTES.SECUTITY_DASHBOARD
+        redirectTo: ROUTES.SECURITY_DASHBOARD
     }
 ];

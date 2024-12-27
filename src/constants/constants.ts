@@ -5,12 +5,12 @@ export const ROUTES = {
     AUTH: 'auth',
     LOGIN: 'login',
     HOME: 'home',
-    SECUTITY_DASHBOARD: 'security_dashboard',
+    SECURITY_DASHBOARD: 'security_dashboard',
     EXTERNAL_SURFACE_ASSETS: 'external_surface_assets',
-    VULNERABILITIES: 'vulNERabilities',
+    VULNERABILITIES: 'vulnerabilities',
     EMAIL_HEALTH: 'email_health',
     PUBLIC_DATA: 'public_data', // Suspicious urls emails page.
-    CUSTOMERS: 'customers', // When admin logs in they are suypposed to select a user, of customer type, to display.
+    CUSTOMERS: 'customers', // Admin selects a customer to display.
 }
 
 // Azure AD configuration settings.
