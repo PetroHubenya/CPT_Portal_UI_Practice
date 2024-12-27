@@ -1,0 +1,15 @@
+export const environment = {
+  production: false,  
+  apiUrl: 'http://localhost:32771/api/',
+  azure: {
+    scopes: [
+      'https://managedbyparabellyxdev.onmicrosoft.com/a4cba307-ad53-465d-9d7f-44b2003c95dc/user_impersonation',
+    ],
+    clientID: 'a4cba307-ad53-465d-9d7f-44b2003c95dc',
+    domain: 'managedbyparabellyxdev.b2clogin.com',
+    authFlowLink: 'https://managedbyparabellyxdev.b2clogin.com/managedbyparabellyxdev.onmicrosoft.com/B2C_1_signin',
+    authFLowName: 'B2C_1_signin',
+    changePasswordFlowName: 'B2C_1_reset_password',
+    changePasswordFlowLink: 'https://managedbyparabellyxdev.b2clogin.com/managedbyparabellyxdev.onmicrosoft.com/B2C_1_reset_password',
+  }
+};

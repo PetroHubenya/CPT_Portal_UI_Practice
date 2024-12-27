@@ -4,21 +4,21 @@
 // or settings at runtime, rather than at build time.
 
 import { Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environment';
+
+// Define a type for the environment object
+type EnvironmentType = typeof environment;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
-  private config: any;
+  private config: EnvironmentType = environment;
 
-  constructor() { }
+  constructor() {}
 
-  async loadConfig() {
-    const response = await fetch('/environments/environment.dev.json');
-    this.config = await response.json();
-  }
-
-  get(key: string): any {
+  // Explicitly handle key access with string indexing
+  get<T extends keyof EnvironmentType>(key: T): EnvironmentType[T] {
     return this.config[key];
   }
 }
