@@ -24,3 +24,8 @@ export const AUTH_CONFIG = {
     protectedResource: environment.apiUrl,
     scopes: environment.azure.scopes
 };
+
+export const LOCALSTORAGE_KEYS = {
+    TOKEN: 'parabellyx_token',
+    LOGOUT_RESET_PASS: 'logout-on-reset'
+};

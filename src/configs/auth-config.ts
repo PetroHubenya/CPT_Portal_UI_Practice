@@ -1,3 +1,7 @@
+/* Centralize and manage the configuration required to integrate Microsoft Authentication Library (MSAL)
+ with Azure AD B2C for handling user authentication and securing API resources. 
+*/
+
 import { BrowserCacheLocation, Configuration, LogLevel } from '@azure/msal-browser';
 import { AUTH_CONFIG } from '../constants/constants';
 
