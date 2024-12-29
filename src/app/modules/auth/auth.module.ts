@@ -5,7 +5,7 @@ import { MSAL_GUARD_CONFIG, MsalGuard, MsalInterceptor, MsalModule, MsalService 
 import { InteractionType, PublicClientApplication } from '@azure/msal-browser';
 import { provideAppInitializer } from '@angular/core';
 import { msalConfig, protectedResources } from '../../../configs/auth-config';
-import { TokenInterceptor } from '../../token-interceptor/token-interceptor.service';
+import { TokenInterceptor } from '../../../token-interceptor/token-interceptor.service';
 import { Observable } from 'rxjs';
 
 // MSAL Initialization Function
